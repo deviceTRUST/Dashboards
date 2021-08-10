@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "Application": {
+      "type": "keyword"
+    },
+    "SessionDate": {
+      "type": "date"
+    },
+    "LicenseStatus": {
+      "type": "keyword"
+    },
+    "NetBiosName": {
+      "type": "keyword"
+    },
+    "BiosSerial": {
+      "type": "keyword"
+    },
+    "OsId": {
+      "type": "keyword"
+    },
+    "DomainDNS": {
+      "type": "keyword"
+    },
+    "DomainSID": {
+      "type": "keyword"
+    },
+    "UserDomain": {
+      "type": "keyword"
+    },
+    "UserName": {
+      "type": "keyword"
+    }
+  }
+}
