@@ -554,7 +554,7 @@ $json = @"
 }
 "@
 
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     
@@ -1090,7 +1090,7 @@ $json = @"
 }
 "@
 
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     
@@ -1396,7 +1396,7 @@ $json = @"
 }
 "@
 
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     
@@ -2065,7 +2065,7 @@ $json = @"
 }
 "@
 
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
 

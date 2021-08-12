@@ -122,11 +122,11 @@ $json = @"
 "@
 
     $Headers = @{
-        Authorization = "Splunk aacc1532-7ff3-4705-831f-70c7f77c39c2"
+        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://10.10.10.39:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
 
