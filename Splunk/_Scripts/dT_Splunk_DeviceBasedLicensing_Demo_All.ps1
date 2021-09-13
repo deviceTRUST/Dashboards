@@ -103,7 +103,7 @@ $Applications | foreach-object{
 $json = @"
 {
 "host": "$DeviceName",
-"index": "deviceTRUST",
+"index": "devicetrust",
 "sourcetype": "devicebasedlicensing",
 "event": "Device based licensing Log Entry created for Application: $Application on Device: $DeviceName",
 "fields": {
@@ -122,11 +122,11 @@ $json = @"
 "@
 
     $Headers = @{
-        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
+        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
 

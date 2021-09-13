@@ -35,14 +35,14 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random –Minimum 0 –Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusName = "Unsupported OS"
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatus = "Unsupported OS"
     
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "Unsupported OS"
+    # Antivirus Sugnature Status
+    $AntiVirusSignatureStatus = "Unsupported OS"
 
     # Country
     $CountryArray = @(
@@ -486,16 +486,16 @@ do {
 $json = @"
 {
     "host": "$DeviceName",
-    "index": "deviceTRUST",
+    "index": "devicetrust",
     "sourcetype": "statusreport",
     "event": "Status Report Log Entry created for $DeviceName",
     "fields": {
         "Session Date": "$SessionDate",
         "Device Name": "$DeviceName",
         "Access Mode": "$AccessMode",
-        "Anti-Virus Name": "$AntiVirusName",
-        "Anti-Virus Status": "$AntiVirusStatus",
-        "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+        "Antivirus Name": "$AntiVirusName",
+        "Antivirus Status": "$AntiVirusStatus",
+        "Antivirus Timestamp": "$AntiVirusSignatureStatus",
         "Country": "$Country",
         "Country Provider": "$CountryProvider",
         "Device Identifier": "$DeviceIdentifier",
@@ -532,7 +532,7 @@ $json = @"
         "Remote Controlled": "$RemoteControlled",
         "Remoting Client Protocol": "$RemoteClientProtocol",
         "Remoting Client Version": "$RemoteClientVersion",
-        "Secure Screen Saver": "$SecureScreenSave",
+        "Secure Screen Saver": "$SecureScreenSaver",
         "Security State": "$SecurityState",
         "Session User Domain": "$SessionUserDomain",
         "Session User Name": "$SessionUserName",
@@ -547,12 +547,11 @@ $json = @"
 
 
     $Headers = @{
-        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
+        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
         ContentType = "application/json"
     }
 
-    #write-host "Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers"
-    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
     
@@ -597,14 +596,14 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random –Minimum 0 –Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusName = "Unsupported OS"
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatus = "Unsupported OS"
     
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "Unsupported OS"
+    # Antivirus Timestamp
+    $AntiVirusSignatureStatus = "Unsupported OS"
 
     # Country
     $CountryArray = @(
@@ -1020,16 +1019,16 @@ do {
 $json = @"
 {
     "host": "$DeviceName",
-    "index": "deviceTRUST",
+    "index": "devicetrust",
     "sourcetype": "statusreport",
     "event": "Status Report Log Entry created for $DeviceName",
     "fields": {
         "Session Date": "$SessionDate",
         "Device Name": "$DeviceName",
         "Access Mode": "$AccessMode",
-        "Anti-Virus Name": "$AntiVirusName",
-        "Anti-Virus Status": "$AntiVirusStatus",
-        "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+        "Antivirus Name": "$AntiVirusName",
+        "Antivirus Status": "$AntiVirusStatus",
+        "Antivirus Timestamp": "$AntiVirusSignatureStatus",
         "Country": "$Country",
         "Country Provider": "$CountryProvider",
         "Device Identifier": "$DeviceIdentifier",
@@ -1066,7 +1065,7 @@ $json = @"
         "Remote Controlled": "$RemoteControlled",
         "Remoting Client Protocol": "$RemoteClientProtocol",
         "Remoting Client Version": "$RemoteClientVersion",
-        "Secure Screen Saver": "$SecureScreenSave",
+        "Secure Screen Saver": "$SecureScreenSaver",
         "Security State": "$SecurityState",
         "Session User Domain": "$SessionUserDomain",
         "Session User Name": "$SessionUserName",
@@ -1080,12 +1079,11 @@ $json = @"
 "@
 
     $Headers = @{
-        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
+        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
         ContentType = "application/json"
     }
 
-    #write-host "Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers"
-    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
     
@@ -1130,14 +1128,14 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random –Minimum 0 –Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusName = "No Client"
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatus = "No Client"
     
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "No Client"
+    # Antivirus Timestamp
+    $AntiVirusSignatureStatus = "No Client"
 
     # Country
     $Country = "No Client"
@@ -1338,16 +1336,16 @@ do {
 $json = @"
 {
     "host": "$DeviceName",
-    "index": "deviceTRUST",
+    "index": "devicetrust",
     "sourcetype": "statusreport",
     "event": "Status Report Log Entry created for $DeviceName",
     "fields": {
         "Session Date": "$SessionDate",
         "Device Name": "$DeviceName",
         "Access Mode": "$AccessMode",
-        "Anti-Virus Name": "$AntiVirusName",
-        "Anti-Virus Status": "$AntiVirusStatus",
-        "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+        "Antivirus Name": "$AntiVirusName",
+        "Antivirus Status": "$AntiVirusStatus",
+        "Antivirus Timestamp": "$AntiVirusSignatureStatus",
         "Country": "$Country",
         "Country Provider": "$CountryProvider",
         "Device Identifier": "$DeviceIdentifier",
@@ -1384,7 +1382,7 @@ $json = @"
         "Remote Controlled": "$RemoteControlled",
         "Remoting Client Protocol": "$RemoteClientProtocol",
         "Remoting Client Version": "$RemoteClientVersion",
-        "Secure Screen Saver": "$SecureScreenSave",
+        "Secure Screen Saver": "$SecureScreenSaver",
         "Security State": "$SecurityState",
         "Session User Domain": "$SessionUserDomain",
         "Session User Name": "$SessionUserName",
@@ -1398,12 +1396,11 @@ $json = @"
 "@
     
     $Headers = @{
-        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
+        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
         ContentType = "application/json"
     }
 
-    #write-host "Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers"
-    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
     
@@ -1448,18 +1445,18 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random –Minimum 0 –Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusNameArray = @(
         "Microsoft Defender Antivirus",
         "Not installed",
         "Microsoft Defender Antivirus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "McAfee Anti Virus",
         "Microsoft Defender Antivirus",
         "McAfee Anti Virus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "Microsoft Defender Antivirus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "Microsoft Defender Antivirus",
         "McAfee Anti Virus",
         "McAfee Anti Virus",
@@ -1467,7 +1464,7 @@ do {
     )
     $AntiVirusName = $AntiVirusNameArray[(Get-Random –Minimum 0 –Maximum 14)]  
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatusArray = @(
         "Active",
         "Active",
@@ -1483,9 +1480,21 @@ do {
     if ($AntiVirusName -ne "Not installed") {$AntiVirusStatus = $AntiVirusStatusArray[(Get-Random –Minimum 0 –Maximum 10)]}
     if ($AntiVirusName -eq "Not installed") {$AntiVirusStatus = "Not applicable"}
 
-    # Anti-Virus Timestamp
-    if ($AntiVirusStatus -ne "Not applicable") {$AntiVirusTimestamp = ((Get-Date -Date $SessionDate).AddDays(-(Get-Random -Minimum 0 -Maximum 15))).ToString("yyyy-MM-ddTHH:mm:ss.000Z")}
-    if ($AntiVirusStatus -eq "Not applicable") {$AntiVirusTimestamp = ""}
+    # Antivirus Signature Status
+    $AntiVirusSignatureStatusArray = @(
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Up-To-Date",
+        "Out-Of-Date"
+    )
+    if ($AntiVirusName -ne "Not installed") {$AntiVirusSignatureStatus = $AntiVirusSignatureStatusArray[(Get-Random –Minimum 0 –Maximum 10)]}
+    if ($AntiVirusName -eq "Not installed") {$AntiVirusSignatureStatus = "Not applicable"}
 
     # Country
     $CountryArray = @(
@@ -2022,16 +2031,16 @@ do {
 $json = @"
 {
     "host": "$DeviceName",
-    "index": "deviceTRUST",
+    "index": "devicetrust",
     "sourcetype": "statusreport",
     "event": "Status Report Log Entry created for $DeviceName",
     "fields": {
         "Session Date": "$SessionDate",
         "Device Name": "$DeviceName",
-        "Access Mode": "$AccessMode", //string
-        "Anti-Virus Name": "$AntiVirusName",
-        "Anti-Virus Status": "$AntiVirusStatus",
-        "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+        "Access Mode": "$AccessMode",
+        "Antivirus Name": "$AntiVirusName",
+        "Antivirus Status": "$AntiVirusStatus",
+        "Antivirus Signature Status": "$AntiVirusSignatureStatus",
         "Country": "$Country",
         "Country Provider": "$CountryProvider",
         "Device Identifier": "$DeviceIdentifier",
@@ -2068,7 +2077,7 @@ $json = @"
         "Remote Controlled": "$RemoteControlled",
         "Remoting Client Protocol": "$RemoteClientProtocol",
         "Remoting Client Version": "$RemoteClientVersion",
-        "Secure Screen Saver": "$SecureScreenSave",
+        "Secure Screen Saver": "$SecureScreenSaver",
         "Security State": "$SecurityState",
         "Session User Domain": "$SessionUserDomain",
         "Session User Name": "$SessionUserName",
@@ -2082,12 +2091,11 @@ $json = @"
 "@
     
     $Headers = @{
-        Authorization = "Splunk a3f6527c-6300-472e-9548-7f515fd650f2"
+        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
         ContentType = "application/json"
     }
 
-    #write-host "Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers"
-    Invoke-WebRequest -Uri "http://10.10.10.170:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
     
