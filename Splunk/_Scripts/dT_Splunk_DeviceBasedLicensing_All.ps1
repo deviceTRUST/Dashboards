@@ -93,7 +93,14 @@ $Applications | foreach-object{
         if ($Year -ne "2021") {$Month = (Get-Random -Minimum 1 -Maximum 13).ToString("00")}
         if ($Year -eq "2021") {$Month = (Get-Random -Minimum 1 -Maximum ((Get-Date).Month + 1)).ToString("00")}
         if ($Year -ne "2021") {$Day = (Get-Random -Minimum 1 -Maximum 29).ToString("00")}
-        if ($Year -eq "2021") {$Day = (Get-Random -Minimum 1 -Maximum (Get-Date).Day).ToString("00")}
+        if ($Year -eq "2021") {
+            if(((Get-Date).Day).ToString("00") -ne "01"){
+                $Day = (Get-Random -Minimum 1 -Maximum (Get-Date).Day).ToString("00")
+            } else {
+                $Day = "01"
+            }
+                    
+        }
         $Hour = (Get-Random -Minimum 1 -Maximum 24).ToString("00")
         $Minute = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
         $Seconds = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
@@ -108,30 +115,30 @@ $json = @"
 "event": "Device based licensing Log Entry created for Application: $Application on Device: $DeviceName",
 "fields": {
     "Application": "$Application",
-    "Session Date": "$Date",
+    "SessionDate": "$Date",
     "LicensedStatus": "$LicensedStatus",
-    "Device Name": "$Device",
-    "Device BIOS Serial Number": "$DEVICE_HARDWARE_BIOS_SERIAL",
-    "Device OS ID": "$DEVICE_OS_ID",
-    "Application User": "$ApplicationUserState",
-    "User Domain": "$Domain",
-    "User Name": "$User"
+    "DeviceName": "$Device",
+    "DeviceBIOSSerialNumber": "$DEVICE_HARDWARE_BIOS_SERIAL",
+    "DeviceOSID": "$DEVICE_OS_ID",
+    "ApplicationUser": "$ApplicationUserState",
+    "UserDomain": "$Domain",
+    "UserName": "$User"
 }
 }
 
 "@
 
     $Headers = @{
-        Authorization = "Splunk 1678c777-199d-4f9d-9a66-87594b7f33d7"
+        Authorization = "Splunk e35aabda-ec72-4e19-8970-ab6e6764415c"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://10.10.10.183:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://10.10.10.192:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
 
     $counter = $counter + 1
 
     }
 
-    until ($counter -gt 60)
+    until ($counter -gt 15)
 
 }

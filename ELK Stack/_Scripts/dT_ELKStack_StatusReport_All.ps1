@@ -35,14 +35,14 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random -Minimum 0 -Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusName = "Unsupported OS"
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatus = "Unsupported OS"
     
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "Unsupported OS"
+    # Antivirus Sugnature Status
+    $AntiVirusSignatureStatus = "Unsupported OS"
 
     # Country
     $CountryArray = @(
@@ -408,21 +408,6 @@ do {
     if ($RemoteClientProtocol -eq "ICA" -or $RemoteClientProtocol -eq "Blast") {$RemoteClientVersion =  $RemoteClientVersionArray[(Get-Random -Minimum 0 -Maximum 10)]}
     else {$RemoteClientVersion = "Unavailable"}
     
-    # Secure Screen Saver
-    $SecureScreenSaverArray = @(
-        "True",
-        "False",
-        "False",
-        "False",
-        "True",
-        "False",
-        "True",
-        "False",
-        "False",
-        "False"
-    )
-    $SecureScreenSaver = $SecureScreenSaverArray[(Get-Random -Minimum 0 -Maximum 10)] 
-
     # Security State
     if ($DeviceType -eq "IGEL (Managed)") {$SecurityState = "Protected"}
     else {$SecurityState = "Unprotected"}
@@ -500,61 +485,61 @@ do {
 
 $json = @"
 {
-    "Session Date": "$SessionDate",
-    "Device Name": "$DeviceName",
-    "Access Mode": "$AccessMode",
-    "Anti-Virus Name": "$AntiVirusName",
-    "Anti-Virus Status": "$AntiVirusStatus",
-    "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+    "SessionDate": "$SessionDate",
+    "DeviceName": "$DeviceName",
+    "AccessMode": "$AccessMode",
+    "AntivirusName": "$AntiVirusName",
+    "AntivirusStatus": "$AntiVirusStatus",
+    "AntivirusSignatureStatus": "$AntiVirusSignatureStatus",
     "Country": "$Country",
-    "Country Provider": "$CountryProvider",
-    "Device Identifier": "$DeviceIdentifier",
-    "Device Type": "$DeviceType",
-    "deviceTRUST Client": "$DeviceTrustClient",
-    "Economic Region": "$EconomicRegion",
-    "Firewall Name": "$FirewallName",
-    "Firewall Status": "$FirewallStatus",
-    "Hardware BIOS Release Date": "$HardwareBiosReleaseDate",
-    "Hardware Model": "$HardwareModel",
-    "Hardware Role": "$HardwareRole",
-    "Hardware Secure Boot": "$HardwareSecureBoot",
-    "Hardware Vendor": "$HardwareVendor",
-    "Network Address Assignment": "$NetworkAddressAssignment",
-    "Network DHCP Server": "$NetworkDHCPServer",
-    "Network DNS Server": "$NetworkDNSServer",
-    "Network DNS Suffix": "$NetworkDNSSuffix",
-    "Network Gateway": "$NetworkGateway",
-    "Network Gateway Mac": "$NetworkGatewayMac",
-    "Network IP Address": "$NetworkIPAddress",
-    "Network Mac Address": "$NetworkMacAddress",
-    "Network Subnet": "$NetworkSubnet",
-    "OS Description": "$OSDescription",
-    "OS Disk Encryption": "$OSDiskEncryption",
-    "OS Name": "$OSName",
-    "OS Platform": "$OSPlatform",
-    "OS Release": "$OSRelease",
-    "OS Type": "$OSType",
-    "OS Updates": "$OSUpdates",
-    "OS Version": "$OSVersion",
-    "Region Keyboard Locale": "$RegionKeyboardLocale",
-    "Region Locale": "$RegionLocale",
-    "Region Timezone Offset": "$RegionTimezoneOffset",
-    "Remote Controlled": "$RemoteControlled",
-    "Remoting Client Protocol": "$RemoteClientProtocol",
-    "Remoting Client Version": "$RemoteClientVersion",
-    "Secure Screen Saver": "$SecureScreenSave",
-    "Security State": "$SecurityState",
-    "Session User Domain": "$SessionUserDomain",
-    "Session User Name": "$SessionUserName",
-    "User Authentication": "$UserAuthentication",
-    "User Privileges": "$UserPrivileges",
+    "CountryProvider": "$CountryProvider",
+    "DeviceIdentifier": "$DeviceIdentifier",
+    "DeviceType": "$DeviceType",
+    "deviceTRUSTClient": "$DeviceTrustClient",
+    "EconomicRegion": "$EconomicRegion",
+    "FirewallName": "$FirewallName",
+    "FirewallStatus": "$FirewallStatus",
+    "HardwareBIOSReleaseDate": "$HardwareBiosReleaseDate",
+    "HardwareModel": "$HardwareModel",
+    "HardwareRole": "$HardwareRole",
+    "HardwareSecureBoot": "$HardwareSecureBoot",
+    "HardwareVendor": "$HardwareVendor",
+    "NetworkAddressAssignment": "$NetworkAddressAssignment",
+    "NetworkDHCPServer": "$NetworkDHCPServer",
+    "NetworkDNSServer": "$NetworkDNSServer",
+    "NetworkDNSSuffix": "$NetworkDNSSuffix",
+    "NetworkGateway": "$NetworkGateway",
+    "NetworkGatewayMac": "$NetworkGatewayMac",
+    "NetworkIPAddress": "$NetworkIPAddress",
+    "NetworkMacAddress": "$NetworkMacAddress",
+    "NetworkSubnet": "$NetworkSubnet",
+    "OSDescription": "$OSDescription",
+    "OSDiskEncryption": "$OSDiskEncryption",
+    "OSName": "$OSName",
+    "OSPlatform": "$OSPlatform",
+    "OSRelease": "$OSRelease",
+    "OSType": "$OSType",
+    "OSUpdates": "$OSUpdates",
+    "OSVersion": "$OSVersion",
+    "RegionKeyboardLocale": "$RegionKeyboardLocale",
+    "RegionLocale": "$RegionLocale",
+    "RegionTimezoneOffset": "$RegionTimezoneOffset",
+    "RemoteControlled": "$RemoteControlled",
+    "RemotingClientProtocol": "$RemoteClientProtocol",
+    "RemotingClientVersion": "$RemoteClientVersion",
+    "SecureScreenSaver": "$SecureScreenSaver",
+    "SecurityState": "$SecurityState",
+    "SessionUserDomain": "$SessionUserDomain",
+    "SessionUserName": "$SessionUserName",
+    "UserAuthentication": "$UserAuthentication",
+    "UserPrivileges": "$UserPrivileges",
     "Virtualized": "$Virtualized",
-    "VPN Connected": "$VPNConnected",
-    "Wi-Fi Security Mode": "$WiFiSecurityMode"
+    "VPNConnected": "$VPNConnected",
+    "Wi-FiSecurityMode": "$WiFiSecurityMode"
 }
 "@
-
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    
+    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     
@@ -599,14 +584,14 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random -Minimum 0 -Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusName = "Unsupported OS"
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatus = "Unsupported OS"
     
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "Unsupported OS"
+    # Antivirus Timestamp
+    $AntiVirusSignatureStatus = "Unsupported OS"
 
     # Country
     $CountryArray = @(
@@ -933,21 +918,6 @@ do {
     if ($RemoteClientProtocol -eq "ICA" -or $RemoteClientProtocol -eq "Blast") {$RemoteClientVersion =  $RemoteClientVersionArray[(Get-Random -Minimum 0 -Maximum 10)]}
     else {$RemoteClientVersion = "Unavailable"}
     
-    # Secure Screen Saver
-    $SecureScreenSaverArray = @(
-        "True",
-        "False",
-        "False",
-        "False",
-        "True",
-        "False",
-        "True",
-        "False",
-        "False",
-        "False"
-    )
-    $SecureScreenSaver = $SecureScreenSaverArray[(Get-Random -Minimum 0 -Maximum 10)] 
-
     # Security State
     if ($FirewallStatus -eq "Active") {$SecurityState = "Protected"}
     else {$SecurityState = "Unprotected"}
@@ -1036,65 +1006,65 @@ do {
 
 $json = @"
 {
-    "Session Date": "$SessionDate",
-    "Device Name": "$DeviceName",
-    "Access Mode": "$AccessMode",
-    "Anti-Virus Name": "$AntiVirusName",
-    "Anti-Virus Status": "$AntiVirusStatus",
-    "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+    "SessionDate": "$SessionDate",
+    "DeviceName": "$DeviceName",
+    "AccessMode": "$AccessMode",
+    "AntivirusName": "$AntiVirusName",
+    "AntivirusStatus": "$AntiVirusStatus",
+    "AntivirusSignatureStatus": "$AntiVirusSignatureStatus",
     "Country": "$Country",
-    "Country Provider": "$CountryProvider",
-    "Device Identifier": "$DeviceIdentifier",
-    "Device Type": "$DeviceType",
-    "deviceTRUST Client": "$DeviceTrustClient",
-    "Economic Region": "$EconomicRegion",
-    "Firewall Name": "$FirewallName",
-    "Firewall Status": "$FirewallStatus",
-    "Hardware BIOS Release Date": "$HardwareBiosReleaseDate",
-    "Hardware Model": "$HardwareModel",
-    "Hardware Role": "$HardwareRole",
-    "Hardware Secure Boot": "$HardwareSecureBoot",
-    "Hardware Vendor": "$HardwareVendor",
-    "Network Address Assignment": "$NetworkAddressAssignment",
-    "Network DHCP Server": "$NetworkDHCPServer",
-    "Network DNS Server": "$NetworkDNSServer",
-    "Network DNS Suffix": "$NetworkDNSSuffix",
-    "Network Gateway": "$NetworkGateway",
-    "Network Gateway Mac": "$NetworkGatewayMac",
-    "Network IP Address": "$NetworkIPAddress",
-    "Network Mac Address": "$NetworkMacAddress",
-    "Network Subnet": "$NetworkSubnet",
-    "OS Description": "$OSDescription",
-    "OS Disk Encryption": "$OSDiskEncryption",
-    "OS Name": "$OSName",
-    "OS Platform": "$OSPlatform",
-    "OS Release": "$OSRelease",
-    "OS Type": "$OSType",
-    "OS Updates": "$OSUpdates",
-    "OS Version": "$OSVersion",
-    "Region Keyboard Locale": "$RegionKeyboardLocale",
-    "Region Locale": "$RegionLocale",
-    "Region Timezone Offset": "$RegionTimezoneOffset",
-    "Remote Controlled": "$RemoteControlled",
-    "Remoting Client Protocol": "$RemoteClientProtocol",
-    "Remoting Client Version": "$RemoteClientVersion",
-    "Secure Screen Saver": "$SecureScreenSave",
-    "Security State": "$SecurityState",
-    "Session User Domain": "$SessionUserDomain",
-    "Session User Name": "$SessionUserName",
-    "User Authentication": "$UserAuthentication",
-    "User Privileges": "$UserPrivileges",
+    "CountryProvider": "$CountryProvider",
+    "DeviceIdentifier": "$DeviceIdentifier",
+    "DeviceType": "$DeviceType",
+    "deviceTRUSTClient": "$DeviceTrustClient",
+    "EconomicRegion": "$EconomicRegion",
+    "FirewallName": "$FirewallName",
+    "FirewallStatus": "$FirewallStatus",
+    "HardwareBIOSReleaseDate": "$HardwareBiosReleaseDate",
+    "HardwareModel": "$HardwareModel",
+    "HardwareRole": "$HardwareRole",
+    "HardwareSecureBoot": "$HardwareSecureBoot",
+    "HardwareVendor": "$HardwareVendor",
+    "NetworkAddressAssignment": "$NetworkAddressAssignment",
+    "NetworkDHCPServer": "$NetworkDHCPServer",
+    "NetworkDNSServer": "$NetworkDNSServer",
+    "NetworkDNSSuffix": "$NetworkDNSSuffix",
+    "NetworkGateway": "$NetworkGateway",
+    "NetworkGatewayMac": "$NetworkGatewayMac",
+    "NetworkIPAddress": "$NetworkIPAddress",
+    "NetworkMacAddress": "$NetworkMacAddress",
+    "NetworkSubnet": "$NetworkSubnet",
+    "OSDescription": "$OSDescription",
+    "OSDiskEncryption": "$OSDiskEncryption",
+    "OSName": "$OSName",
+    "OSPlatform": "$OSPlatform",
+    "OSRelease": "$OSRelease",
+    "OSType": "$OSType",
+    "OSUpdates": "$OSUpdates",
+    "OSVersion": "$OSVersion",
+    "RegionKeyboardLocale": "$RegionKeyboardLocale",
+    "RegionLocale": "$RegionLocale",
+    "RegionTimezoneOffset": "$RegionTimezoneOffset",
+    "RemoteControlled": "$RemoteControlled",
+    "RemotingClientProtocol": "$RemoteClientProtocol",
+    "RemotingClientVersion": "$RemoteClientVersion",
+    "SecureScreenSaver": "$SecureScreenSaver",
+    "SecurityState": "$SecurityState",
+    "SessionUserDomain": "$SessionUserDomain",
+    "SessionUserName": "$SessionUserName",
+    "UserAuthentication": "$UserAuthentication",
+    "UserPrivileges": "$UserPrivileges",
     "Virtualized": "$Virtualized",
-    "VPN Connected": "$VPNConnected",
-    "Wi-Fi Security Mode": "$WiFiSecurityMode"
+    "VPNConnected": "$VPNConnected",
+    "Wi-FiSecurityMode": "$WiFiSecurityMode"
 }
 "@
-
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    
+    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
-    
- }
+
+}
 
 until ($counter -gt 100)
 
@@ -1102,305 +1072,305 @@ $Counter = 1
 
 do {
 
-    # Session Date
-    $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 19)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
+# Session Date
+$SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 19)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
 
-    # Device Name
-    $DeviceNameArray = @(
-        "DTLDTW9",
-        "DTLDTW8",
-        "ITC0008",
-        "DE-TD56",
-        "UK-TD13",
-        "US-45DT",
-        "TCDE334",
-        "TESTEE1",
-        "TESTDE9",
-        "GLVANDV"
-    )
-    $DeviceName = $DeviceNameArray[(Get-Random -Minimum 0 -Maximum 10)] + (Get-Random -Minimum 1000 -Maximum 100000)
- 
-    # Access Mode
-    $AccessModeArray = @(
-        "Internal",
-        "External",
-        "Internal",
-        "External",
-        "External",
-        "External",
-        "Internal",
-        "External",
-        "Internal",
-        "External"
-    )
-    $AccessMode = $AccessModeArray[(Get-Random -Minimum 0 -Maximum 10)]
+# Device Name
+$DeviceNameArray = @(
+    "DTLDTW9",
+    "DTLDTW8",
+    "ITC0008",
+    "DE-TD56",
+    "UK-TD13",
+    "US-45DT",
+    "TCDE334",
+    "TESTEE1",
+    "TESTDE9",
+    "GLVANDV"
+)
+$DeviceName = $DeviceNameArray[(Get-Random -Minimum 0 -Maximum 10)] + (Get-Random -Minimum 1000 -Maximum 100000)
 
-    # Anti-Virus Name
-    $AntiVirusName = "No Client"
+# Access Mode
+$AccessModeArray = @(
+    "Internal",
+    "External",
+    "Internal",
+    "External",
+    "External",
+    "External",
+    "Internal",
+    "External",
+    "Internal",
+    "External"
+)
+$AccessMode = $AccessModeArray[(Get-Random -Minimum 0 -Maximum 10)]
 
-    # Anti-Virus Status
-    $AntiVirusStatus = "No Client"
-    
-    # Anti-Virus Timestamp
-    $AntiVirusTimestamp = "No Client"
+# Antivirus Name
+$AntiVirusName = "No Client"
 
-    # Country
-    $Country = "No Client"
+# Antivirus Status
+$AntiVirusStatus = "No Client"
 
-    #Country Provider
-    $CountryProvider = "No Client"
+# Antivirus Timestamp
+$AntiVirusSignatureStatus = "No Client"
 
-    # Device Identifier
-    $DeviceIdentifier = "No Client"
+# Country
+$Country = "No Client"
 
-    # Device Type
-    $DeviceType = "No Client"
+#Country Provider
+$CountryProvider = "No Client"
 
-    # deviceTRUST Client
-    $DeviceTrustClient = "Unavailable"
-    
-    # Economic Region
-    $EconomicRegion = "No Client"
-    
-    # Firewall Name
-    $FirewallName = "No Client"
+# Device Identifier
+$DeviceIdentifier = "No Client"
 
-    # Firewall Status 
-    $FirewallStatus = "No Client"
+# Device Type
+$DeviceType = "No Client"
 
-    # Hardware BIOS Release Date
-    $HardwareBiosReleaseDate = "No Client"
+# deviceTRUST Client
+$DeviceTrustClient = "Unavailable"
 
-    # Hardware Model
-    $HardwareModel = "No Client"
+# Economic Region
+$EconomicRegion = "No Client"
 
-    # Hardware Role
-    $HardwareRole = "No Client"
+# Firewall Name
+$FirewallName = "No Client"
 
-    # Hardware Secure Boot
-    $HardwareSecureBoot = "No Client"
+# Firewall Status 
+$FirewallStatus = "No Client"
 
-    # Hardware Vendor
-    $HardwareVendor = "No Client"
+# Hardware BIOS Release Date
+$HardwareBiosReleaseDate = "No Client"
 
-    # Network Address Assignment
-    $NetworkAddressAssignment = "No Client"
-    
-    # Network DHCP Server
-    $NetworkDHCPServer = "No Client"
-    
-    # Network DNS Server
-    $NetworkDNSServer = "No Client"
-    
-    # Network DNS Suffix
-    $NetworkDNSSuffix = "No Client"
-    
-    # Network Gateway
-    $NetworkGateway = "No Client"
-    
-    # Network Gateway Mac
-    $NetworkGatewayMac = "No Client"
-    
-    # Network IP Address
-    $NetworkIPAddress = "No Client"
-    
-    # Network Mac Address
-    $NetworkMacAddress = "No Client"
-    
-    # Network Subnet
-    $NetworkSubnet = "No Client"
+# Hardware Model
+$HardwareModel = "No Client"
 
-    # OS Description
-    $OSDescription = "No Client"
-    
-    # OS Disk Encryption
-    $OSDiskEncryption = "No Client"
-    
-    # OS Name
-    $OSNameArray = @(
-        "Windows",
-        "Linux",
-        "Windows",
-        "macOS",
-        "macOS",
-        "macOS",
-        "Windows",
-        "macOS",
-        "Windows",
-        "Linux"
-    )
-    $OSName = $OSNameArray[(Get-Random -Minimum 0 -Maximum 10)] 
-    
-    # OS Platform
-    $OSPlatform = "No Client"
-    
-    # OS Release
-    $OSRelease = "No Client"
-    
-    # OS Type
-    $OSType = "No Client"
-    
-    # OS Updates
-    $OSUpdates = "No Client"
-    
-    # OS Version
-    $OSVersion = "No Client"
+# Hardware Role
+$HardwareRole = "No Client"
 
-    # Region Keyboard Locale
-    $RegionKeyboardLocale = "No Client"
+# Hardware Secure Boot
+$HardwareSecureBoot = "No Client"
 
-    # Region Locale
-    $RegionLocale = "No Client"
-    
-    # Region Timezone Offset
-    $RegionTimezoneOffset = "No Client"
-    
-    # Remote Controlled
-    $RemoteControlled = "No Client"
-    
-    # Remoting Client Protocol
-    $RemoteClientProtocolArray = @(
-        "ICA",
-        "RDP",
-        "PCoIP",
-        "Blast",
-        "ICA",
-        "RDP",
-        "Blast",
-        "ICA",
-        "RDP",
-        "RDP"
-    )
-    $RemoteClientProtocol = $RemoteClientProtocolArray[(Get-Random -Minimum 0 -Maximum 10)]    
-  
-    # Remoting Client Version
-    $RemoteClientVersionArray = @(
-        "19.3.0.5",
-        "20.12.0.12",
-        "20.9.0.3",
-        "21.02.0.25",
-        "20.1.23.21",
-        "20.1.45.11",
-        "20.1.23.21",
-        "18.3.07.10",
-        "17.06.01.01",
-        "16.9.01.01"
-    )
-    if ($RemoteClientProtocol -eq "ICA" -or $RemoteClientProtocol -eq "Blast") {$RemoteClientVersion =  $RemoteClientVersionArray[(Get-Random -Minimum 0 -Maximum 10)]}
-    else {$RemoteClientVersion = "Unavailable"}
-    
-    # Secure Screen Saver
-    $SecureScreenSaver = "No Client"
+# Hardware Vendor
+$HardwareVendor = "No Client"
 
-    # Security State
-    $SecurityState = "No Client"
+# Network Address Assignment
+$NetworkAddressAssignment = "No Client"
 
-    # Session User Domain
-    $SessionUserDomainArray = @(
-        "CORPORATE",
-        "company.local",
-        "uk.corporate.local",
-        "us.corporate.local",
-        "de.corporate.local",
-        "UK.local",
-        "US.local",
-        "DE.local",
-        "Germany",
-        "GLOBAL"
-    )
-    $SessionUserDomain = $SessionUserDomainArray[(Get-Random -Minimum 0 -Maximum 10)]
+# Network DHCP Server
+$NetworkDHCPServer = "No Client"
 
-    # Session User Name
-    $SessionUserNameArray = @(
-        "Use1",
-        "ID65",
-        "DEDA",
-        "UKDA",
-        "USWZ",
-        "UID2",
-        "PUDD",
-        "GLDS",
-        "DEVA",
-        "Test1"
-    )
-    $SessionUserName = $SessionUserNameArray[(Get-Random -Minimum 0 -Maximum 10)] + (Get-Random -Minimum 100 -Maximum 10000)
+# Network DNS Server
+$NetworkDNSServer = "No Client"
 
-    # User Authentication
-    $UserAuthentication = "No Client"
+# Network DNS Suffix
+$NetworkDNSSuffix = "No Client"
 
-    # User Privileges
-    $UserPrivileges = "No Client"
+# Network Gateway
+$NetworkGateway = "No Client"
 
-    # Virtualized
-    $Virtualized = "No Client"
+# Network Gateway Mac
+$NetworkGatewayMac = "No Client"
 
-    # VPN Connected
-    $VPNConnected = "No Client"
+# Network IP Address
+$NetworkIPAddress = "No Client"
 
-    # Wi-Fi Security Mode
-    $WiFiSecurityMode = "No Client"
+# Network Mac Address
+$NetworkMacAddress = "No Client"
+
+# Network Subnet
+$NetworkSubnet = "No Client"
+
+# OS Description
+$OSDescription = "No Client"
+
+# OS Disk Encryption
+$OSDiskEncryption = "No Client"
+
+# OS Name
+$OSNameArray = @(
+    "Windows",
+    "Linux",
+    "Windows",
+    "macOS",
+    "macOS",
+    "macOS",
+    "Windows",
+    "macOS",
+    "Windows",
+    "Linux"
+)
+$OSName = $OSNameArray[(Get-Random -Minimum 0 -Maximum 10)] 
+
+# OS Platform
+$OSPlatform = "No Client"
+
+# OS Release
+$OSRelease = "No Client"
+
+# OS Type
+$OSType = "No Client"
+
+# OS Updates
+$OSUpdates = "No Client"
+
+# OS Version
+$OSVersion = "No Client"
+
+# Region Keyboard Locale
+$RegionKeyboardLocale = "No Client"
+
+# Region Locale
+$RegionLocale = "No Client"
+
+# Region Timezone Offset
+$RegionTimezoneOffset = "No Client"
+
+# Remote Controlled
+$RemoteControlled = "No Client"
+
+# Remoting Client Protocol
+$RemoteClientProtocolArray = @(
+    "ICA",
+    "RDP",
+    "PCoIP",
+    "Blast",
+    "ICA",
+    "RDP",
+    "Blast",
+    "ICA",
+    "RDP",
+    "RDP"
+)
+$RemoteClientProtocol = $RemoteClientProtocolArray[(Get-Random -Minimum 0 -Maximum 10)]    
+
+# Remoting Client Version
+$RemoteClientVersionArray = @(
+    "19.3.0.5",
+    "20.12.0.12",
+    "20.9.0.3",
+    "21.02.0.25",
+    "20.1.23.21",
+    "20.1.45.11",
+    "20.1.23.21",
+    "18.3.07.10",
+    "17.06.01.01",
+    "16.9.01.01"
+)
+if ($RemoteClientProtocol -eq "ICA" -or $RemoteClientProtocol -eq "Blast") {$RemoteClientVersion =  $RemoteClientVersionArray[(Get-Random -Minimum 0 -Maximum 10)]}
+else {$RemoteClientVersion = "Unavailable"}
+
+# Secure Screen Saver
+$SecureScreenSaver = "No Client"
+
+# Security State
+$SecurityState = "No Client"
+
+# Session User Domain
+$SessionUserDomainArray = @(
+    "CORPORATE",
+    "company.local",
+    "uk.corporate.local",
+    "us.corporate.local",
+    "de.corporate.local",
+    "UK.local",
+    "US.local",
+    "DE.local",
+    "Germany",
+    "GLOBAL"
+)
+$SessionUserDomain = $SessionUserDomainArray[(Get-Random -Minimum 0 -Maximum 10)]
+
+# Session User Name
+$SessionUserNameArray = @(
+    "Use1",
+    "ID65",
+    "DEDA",
+    "UKDA",
+    "USWZ",
+    "UID2",
+    "PUDD",
+    "GLDS",
+    "DEVA",
+    "Test1"
+)
+$SessionUserName = $SessionUserNameArray[(Get-Random -Minimum 0 -Maximum 10)] + (Get-Random -Minimum 100 -Maximum 10000)
+
+# User Authentication
+$UserAuthentication = "No Client"
+
+# User Privileges
+$UserPrivileges = "No Client"
+
+# Virtualized
+$Virtualized = "No Client"
+
+# VPN Connected
+$VPNConnected = "No Client"
+
+# Wi-Fi Security Mode
+$WiFiSecurityMode = "No Client"
 
 $json = @"
 {
-    "Session Date": "$SessionDate",
-    "Device Name": "$DeviceName",
-    "Access Mode": "$AccessMode",
-    "Anti-Virus Name": "$AntiVirusName",
-    "Anti-Virus Status": "$AntiVirusStatus",
-    "Anti-Virus Timestamp": "$AntiVirusTimestamp",
-    "Country": "$Country",
-    "Country Provider": "$CountryProvider",
-    "Device Identifier": "$DeviceIdentifier",
-    "Device Type": "$DeviceType",
-    "deviceTRUST Client": "$DeviceTrustClient",
-    "Economic Region": "$EconomicRegion",
-    "Firewall Name": "$FirewallName",
-    "Firewall Status": "$FirewallStatus",
-    "Hardware BIOS Release Date": "$HardwareBiosReleaseDate",
-    "Hardware Model": "$HardwareModel",
-    "Hardware Role": "$HardwareRole",
-    "Hardware Secure Boot": "$HardwareSecureBoot",
-    "Hardware Vendor": "$HardwareVendor",
-    "Network Address Assignment": "$NetworkAddressAssignment",
-    "Network DHCP Server": "$NetworkDHCPServer",
-    "Network DNS Server": "$NetworkDNSServer",
-    "Network DNS Suffix": "$NetworkDNSSuffix",
-    "Network Gateway": "$NetworkGateway",
-    "Network Gateway Mac": "$NetworkGatewayMac",
-    "Network IP Address": "$NetworkIPAddress",
-    "Network Mac Address": "$NetworkMacAddress",
-    "Network Subnet": "$NetworkSubnet",
-    "OS Description": "$OSDescription",
-    "OS Disk Encryption": "$OSDiskEncryption",
-    "OS Name": "$OSName",
-    "OS Platform": "$OSPlatform",
-    "OS Release": "$OSRelease",
-    "OS Type": "$OSType",
-    "OS Updates": "$OSUpdates",
-    "OS Version": "$OSVersion",
-    "Region Keyboard Locale": "$RegionKeyboardLocale",
-    "Region Locale": "$RegionLocale",
-    "Region Timezone Offset": "$RegionTimezoneOffset",
-    "Remote Controlled": "$RemoteControlled",
-    "Remoting Client Protocol": "$RemoteClientProtocol",
-    "Remoting Client Version": "$RemoteClientVersion",
-    "Secure Screen Saver": "$SecureScreenSave",
-    "Security State": "$SecurityState",
-    "Session User Domain": "$SessionUserDomain",
-    "Session User Name": "$SessionUserName",
-    "User Authentication": "$UserAuthentication",
-    "User Privileges": "$UserPrivileges",
-    "Virtualized": "$Virtualized",
-    "VPN Connected": "$VPNConnected",
-    "Wi-Fi Security Mode": "$WiFiSecurityMode"
+"SessionDate": "$SessionDate",
+"DeviceName": "$DeviceName",
+"AccessMode": "$AccessMode",
+"AntivirusName": "$AntiVirusName",
+"AntivirusStatus": "$AntiVirusStatus",
+"AntivirusSignatureStatus": "$AntiVirusSignatureStatus",
+"Country": "$Country",
+"CountryProvider": "$CountryProvider",
+"DeviceIdentifier": "$DeviceIdentifier",
+"DeviceType": "$DeviceType",
+"deviceTRUSTClient": "$DeviceTrustClient",
+"EconomicRegion": "$EconomicRegion",
+"FirewallName": "$FirewallName",
+"FirewallStatus": "$FirewallStatus",
+"HardwareBIOSReleaseDate": "$HardwareBiosReleaseDate",
+"HardwareModel": "$HardwareModel",
+"HardwareRole": "$HardwareRole",
+"HardwareSecureBoot": "$HardwareSecureBoot",
+"HardwareVendor": "$HardwareVendor",
+"NetworkAddressAssignment": "$NetworkAddressAssignment",
+"NetworkDHCPServer": "$NetworkDHCPServer",
+"NetworkDNSServer": "$NetworkDNSServer",
+"NetworkDNSSuffix": "$NetworkDNSSuffix",
+"NetworkGateway": "$NetworkGateway",
+"NetworkGatewayMac": "$NetworkGatewayMac",
+"NetworkIPAddress": "$NetworkIPAddress",
+"NetworkMacAddress": "$NetworkMacAddress",
+"NetworkSubnet": "$NetworkSubnet",
+"OSDescription": "$OSDescription",
+"OSDiskEncryption": "$OSDiskEncryption",
+"OSName": "$OSName",
+"OSPlatform": "$OSPlatform",
+"OSRelease": "$OSRelease",
+"OSType": "$OSType",
+"OSUpdates": "$OSUpdates",
+"OSVersion": "$OSVersion",
+"RegionKeyboardLocale": "$RegionKeyboardLocale",
+"RegionLocale": "$RegionLocale",
+"RegionTimezoneOffset": "$RegionTimezoneOffset",
+"RemoteControlled": "$RemoteControlled",
+"RemotingClientProtocol": "$RemoteClientProtocol",
+"RemotingClientVersion": "$RemoteClientVersion",
+"SecureScreenSaver": "$SecureScreenSaver",
+"SecurityState": "$SecurityState",
+"SessionUserDomain": "$SessionUserDomain",
+"SessionUserName": "$SessionUserName",
+"UserAuthentication": "$UserAuthentication",
+"UserPrivileges": "$UserPrivileges",
+"Virtualized": "$Virtualized",
+"VPNConnected": "$VPNConnected",
+"Wi-FiSecurityMode": "$WiFiSecurityMode"
 }
 "@
 
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
-    $counter = $counter + 1
+$counter = $counter + 1
     
- }
+}
 
 until ($counter -gt 100)
 
@@ -1441,18 +1411,18 @@ do {
     )
     $AccessMode = $AccessModeArray[(Get-Random -Minimum 0 -Maximum 10)]
 
-    # Anti-Virus Name
+    # Antivirus Name
     $AntiVirusNameArray = @(
         "Microsoft Defender Antivirus",
         "Not installed",
         "Microsoft Defender Antivirus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "McAfee Anti Virus",
         "Microsoft Defender Antivirus",
         "McAfee Anti Virus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "Microsoft Defender Antivirus",
-        "eset Anti-Virus",
+        "eset Antivirus",
         "Microsoft Defender Antivirus",
         "McAfee Anti Virus",
         "McAfee Anti Virus",
@@ -1460,7 +1430,7 @@ do {
     )
     $AntiVirusName = $AntiVirusNameArray[(Get-Random -Minimum 0 -Maximum 14)]  
 
-    # Anti-Virus Status
+    # Antivirus Status
     $AntiVirusStatusArray = @(
         "Active",
         "Active",
@@ -1476,9 +1446,21 @@ do {
     if ($AntiVirusName -ne "Not installed") {$AntiVirusStatus = $AntiVirusStatusArray[(Get-Random -Minimum 0 -Maximum 10)]}
     if ($AntiVirusName -eq "Not installed") {$AntiVirusStatus = "Not applicable"}
 
-    # Anti-Virus Timestamp
-    if ($AntiVirusStatus -ne "Not applicable") {$AntiVirusTimestamp = ((Get-Date -Date $SessionDate).AddDays(-(Get-Random -Minimum 0 -Maximum 15))).ToString("yyyy-MM-ddTHH:mm:ss.000Z")}
-    if ($AntiVirusStatus -eq "Not applicable") {$AntiVirusTimestamp = ""}
+    # Antivirus Signature Status
+    $AntiVirusSignatureStatusArray = @(
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Out-Of-Date",
+        "Out-Of-Date",
+        "Up-To-Date",
+        "Up-To-Date",
+        "Out-Of-Date"
+    )
+    if ($AntiVirusName -ne "Not installed") {$AntiVirusSignatureStatus = $AntiVirusSignatureStatusArray[(Get-Random -Minimum 0 -Maximum 10)]}
+    if ($AntiVirusName -eq "Not installed") {$AntiVirusSignatureStatus = "Not applicable"}
 
     # Country
     $CountryArray = @(
@@ -2009,66 +1991,69 @@ do {
     )
     $WiFiSecurityMode = $WiFiSecurityModeArray[(Get-Random -Minimum 0 -Maximum 10)]
 
+
+    $HardwareBiosReleaseDate = "2021-05-03T05:42:38.000Z"
+
 $json = @"
 {
-    "Session Date": "$SessionDate",
-    "Device Name": "$DeviceName",
-    "Access Mode": "$AccessMode",
-    "Anti-Virus Name": "$AntiVirusName",
-    "Anti-Virus Status": "$AntiVirusStatus",
-    "Anti-Virus Timestamp": "$AntiVirusTimestamp",
+    "SessionDate": "$SessionDate",
+    "DeviceName": "$DeviceName",
+    "AccessMode": "$AccessMode",
+    "AntivirusName": "$AntiVirusName",
+    "AntivirusStatus": "$AntiVirusStatus",
+    "AntivirusSignatureStatus": "$AntiVirusSignatureStatus",
     "Country": "$Country",
-    "Country Provider": "$CountryProvider",
-    "Device Identifier": "$DeviceIdentifier",
-    "Device Type": "$DeviceType",
-    "deviceTRUST Client": "$DeviceTrustClient",
-    "Economic Region": "$EconomicRegion",
-    "Firewall Name": "$FirewallName",
-    "Firewall Status": "$FirewallStatus",
-    "Hardware BIOS Release Date": "$HardwareBiosReleaseDate",
-    "Hardware Model": "$HardwareModel",
-    "Hardware Role": "$HardwareRole",
-    "Hardware Secure Boot": "$HardwareSecureBoot",
-    "Hardware Vendor": "$HardwareVendor",
-    "Network Address Assignment": "$NetworkAddressAssignment",
-    "Network DHCP Server": "$NetworkDHCPServer",
-    "Network DNS Server": "$NetworkDNSServer",
-    "Network DNS Suffix": "$NetworkDNSSuffix",
-    "Network Gateway": "$NetworkGateway",
-    "Network Gateway Mac": "$NetworkGatewayMac",
-    "Network IP Address": "$NetworkIPAddress",
-    "Network Mac Address": "$NetworkMacAddress",
-    "Network Subnet": "$NetworkSubnet",
-    "OS Description": "$OSDescription",
-    "OS Disk Encryption": "$OSDiskEncryption",
-    "OS Name": "$OSName",
-    "OS Platform": "$OSPlatform",
-    "OS Release": "$OSRelease",
-    "OS Type": "$OSType",
-    "OS Updates": "$OSUpdates",
-    "OS Version": "$OSVersion",
-    "Region Keyboard Locale": "$RegionKeyboardLocale",
-    "Region Locale": "$RegionLocale",
-    "Region Timezone Offset": "$RegionTimezoneOffset",
-    "Remote Controlled": "$RemoteControlled",
-    "Remoting Client Protocol": "$RemoteClientProtocol",
-    "Remoting Client Version": "$RemoteClientVersion",
-    "Secure Screen Saver": "$SecureScreenSave",
-    "Security State": "$SecurityState",
-    "Session User Domain": "$SessionUserDomain",
-    "Session User Name": "$SessionUserName",
-    "User Authentication": "$UserAuthentication",
-    "User Privileges": "$UserPrivileges",
+    "CountryProvider": "$CountryProvider",
+    "DeviceIdentifier": "$DeviceIdentifier",
+    "DeviceType": "$DeviceType",
+    "deviceTRUSTClient": "$DeviceTrustClient",
+    "EconomicRegion": "$EconomicRegion",
+    "FirewallName": "$FirewallName",
+    "FirewallStatus": "$FirewallStatus",
+    "HardwareBIOSReleaseDate": "$HardwareBiosReleaseDate",
+    "HardwareModel": "$HardwareModel",
+    "HardwareRole": "$HardwareRole",
+    "HardwareSecureBoot": "$HardwareSecureBoot",
+    "HardwareVendor": "$HardwareVendor",
+    "NetworkAddressAssignment": "$NetworkAddressAssignment",
+    "NetworkDHCPServer": "$NetworkDHCPServer",
+    "NetworkDNSServer": "$NetworkDNSServer",
+    "NetworkDNSSuffix": "$NetworkDNSSuffix",
+    "NetworkGateway": "$NetworkGateway",
+    "NetworkGatewayMac": "$NetworkGatewayMac",
+    "NetworkIPAddress": "$NetworkIPAddress",
+    "NetworkMacAddress": "$NetworkMacAddress",
+    "NetworkSubnet": "$NetworkSubnet",
+    "OSDescription": "$OSDescription",
+    "OSDiskEncryption": "$OSDiskEncryption",
+    "OSName": "$OSName",
+    "OSPlatform": "$OSPlatform",
+    "OSRelease": "$OSRelease",
+    "OSType": "$OSType",
+    "OSUpdates": "$OSUpdates",
+    "OSVersion": "$OSVersion",
+    "RegionKeyboardLocale": "$RegionKeyboardLocale",
+    "RegionLocale": "$RegionLocale",
+    "RegionTimezoneOffset": "$RegionTimezoneOffset",
+    "RemoteControlled": "$RemoteControlled",
+    "RemotingClientProtocol": "$RemoteClientProtocol",
+    "RemotingClientVersion": "$RemoteClientVersion",
+    "SecureScreenSaver": "$SecureScreenSaver",
+    "SecurityState": "$SecurityState",
+    "SessionUserDomain": "$SessionUserDomain",
+    "SessionUserName": "$SessionUserName",
+    "UserAuthentication": "$UserAuthentication",
+    "UserPrivileges": "$UserPrivileges",
     "Virtualized": "$Virtualized",
-    "VPN Connected": "$VPNConnected",
-    "Wi-Fi Security Mode": "$WiFiSecurityMode"
+    "VPNConnected": "$VPNConnected",
+    "Wi-FiSecurityMode": "$WiFiSecurityMode"
 }
 "@
-
-    Invoke-WebRequest -Uri "http://10.10.10.58:9200/dt_statusreport_testdata/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    
+    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
-
- }
+    
+}
 
 until ($counter -gt 300)
