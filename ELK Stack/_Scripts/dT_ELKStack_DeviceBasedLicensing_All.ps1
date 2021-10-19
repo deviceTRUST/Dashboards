@@ -123,7 +123,7 @@ $json = @"
     "doc_as_upsert": true
 }
 "@
-        $uri = "http://10.10.10.188:9200/dt_devicebasedlicensing_" + $Application.replace(" ","").tolower() + "/_update/$Device"
+        $uri = "http://YOUR_ELKSTACK_SERVER:9200/dt_devicebasedlicensing_" + $Application.replace(" ","").tolower() + "/_update/$Device"
 
         Invoke-WebRequest -Uri $uri -Method "POST" -ContentType "application/json" -Body $json | Out-Null
     

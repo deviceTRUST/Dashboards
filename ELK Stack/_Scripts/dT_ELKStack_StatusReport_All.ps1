@@ -539,7 +539,7 @@ $json = @"
 }
 "@
     
-    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_ELKSTACK_SERVER:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     
@@ -1060,7 +1060,7 @@ $json = @"
 }
 "@
     
-    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_ELKSTACK_SERVER:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
 
@@ -1366,7 +1366,7 @@ $json = @"
 }
 "@
 
-Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+Invoke-WebRequest -Uri "http://YOUR_ELKSTACK_SERVER:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
 $counter = $counter + 1
     
@@ -2050,7 +2050,7 @@ $json = @"
 }
 "@
     
-    Invoke-WebRequest -Uri "http://10.10.10.188:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_ELKSTACK_SERVER:9200/dt_statusreport/_doc" -Method "POST" -ContentType "application/json" -Body $json | Out-Null
 
     $counter = $counter + 1
     

@@ -8,3 +8,8 @@ All configurations have been created and tested with the following splunk versio
 
 # Documentation
 You can find a comprehensive documentation on our deviceTRUST docs website: ...
+
+# Scripts
+The content of the "_scripts" folder can be used to generate test data. Change the configuration according to your environemnt and run the scripts on any device.
+- YOUR_SPLUNK_SERVER --> Replace with your SPLUNK server's IP address oder FQDN.
+- YOUR_AUTH_TOKEN --> Replace with the http access token generated in your splunk configuration.

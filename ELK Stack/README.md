@@ -8,3 +8,7 @@ ELK Stack saved objects are not downwards compatible. Please use at least the mi
 
 # Documentation
 You can find a comprehensive documentation on our deviceTRUST docs website: ...
+
+# Scripts
+The content of the "_scripts" folder can be used to generate test data. Change the configuration according to your environemnt and run the scripts on any device.
+- YOUR_ELKSTACK_SERVER --> Replace with your ELK Stack server's IP address oder FQDN
