@@ -4,7 +4,7 @@ This section contains our pre-configured dashboards for splunk.
 
 # Version Information
 All configurations have been created and tested with the following splunk versions
-- 8.1.15 (18.10.2021)
+- 8.15 (18.10.2021)
 
 # Documentation
 You can find a comprehensive documentation on our deviceTRUST docs website: ...
