@@ -3,7 +3,8 @@
 This section contains our pre-configured dashboards. You will find content for splunk, ELK Stack and Graylog. 
 
 # Version Information
-All configurations have been created and tested with (at least) deviceTRUST Host and Console version 21.1. Please upgrade accordingly or modify the configurations, if you whitness issues.
+All configurations have been created and tested with (at least) deviceTRUST Host and Console version 21.1. Please upgrade accordingly or modify the configurations, if you whitness issues. 
+They will work with deviceTRUST 20.2.x and lower as well, but modification will be required.
 
 # Contributing
 To contribute to the configurations, follow these steps:
