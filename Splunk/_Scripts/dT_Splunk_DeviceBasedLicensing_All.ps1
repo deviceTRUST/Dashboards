@@ -121,8 +121,8 @@ $json = @"
     "DeviceBIOSSerialNumber": "$DEVICE_HARDWARE_BIOS_SERIAL",
     "DeviceOSID": "$DEVICE_OS_ID",
     "ApplicationUser": "$ApplicationUserState",
-    "UserDomain": "$Domain",
-    "UserName": "$User"
+    "SessionUserDomain": "$Domain",
+    "SessionUserName": "$User"
 }
 }
 
