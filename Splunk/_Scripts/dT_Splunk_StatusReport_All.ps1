@@ -551,7 +551,7 @@ $json = @"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  -UseBasicParsing | Out-Null
 
     $counter = $counter + 1
     
@@ -1083,7 +1083,7 @@ $json = @"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  -UseBasicParsing | Out-Null
 
     $counter = $counter + 1
     
@@ -1400,7 +1400,7 @@ $json = @"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  -UseBasicParsing | Out-Null
 
     $counter = $counter + 1
     
@@ -2095,7 +2095,7 @@ $json = @"
         ContentType = "application/json"
     }
 
-    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  | Out-Null
+    Invoke-WebRequest -Uri "http://YOUR_SPLUNK_SERVER:8088/services/collector" -Method "POST" -Body $json -Headers $Headers  -UseBasicParsing | Out-Null
 
     $counter = $counter + 1
     
