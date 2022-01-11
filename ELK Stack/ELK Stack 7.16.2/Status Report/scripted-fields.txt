@@ -1,0 +1,184 @@
+Timezone Offset
+def offset = doc['Region Timezone Offset'].value; 
+if (offset == '-660') {return 'GMT-11';} 
+else if (offset == '-600') {return 'GMT-10';} 
+else if (offset == '-570') {return 'GMT-9:30';} 
+else if (offset == '-540') {return 'GMT-9';} 
+else if (offset == '-480') {return 'GMT-8';} 
+else if (offset == '-420') {return 'GMT-7';} 
+else if (offset == '-360') {return 'GMT-6';} 
+else if (offset == '-300') {return 'GMT-5';} 
+else if (offset == '-240') {return 'GMT-4';} 
+else if (offset == '-210') {return 'GMT-3:30';} 
+else if (offset == '-180') {return 'GMT-3';} 
+else if (offset == '-120') {return 'GMT-2';} 
+else if (offset == '-60') {return 'GMT-1';} 
+else if (offset == '0') {return 'GMT0';} 
+else if (offset == '60') {return 'GMT+1';} 
+else if (offset == '120') {return 'GMT+2';} 
+else if (offset == '180') {return 'GMT+3';} 
+else if (offset == '210') {return 'GMT+3:30';} 
+else if (offset == '240') {return 'GMT+4';} 
+else if (offset == '270') {return 'GMT+4:30';} 
+else if (offset == '300') {return 'GMT+5';} 
+else if (offset == '330') {return 'GMT+5:30';} 
+else if (offset == '345') {return 'GMT+5:45';} 
+else if (offset == '360') {return 'GMT+6';} 
+else if (offset == '390') {return 'GMT+6:30';} 
+else if (offset == '420') {return 'GMT+7';} 
+else if (offset == '480') {return 'GMT+8';} 
+else if (offset == '525') {return 'GMT+8:45';} 
+else if (offset == '540') {return 'GMT+9';} 
+else if (offset == '570') {return 'GMT+9:30';} 
+else if (offset == '600') {return 'GMT+10';} 
+else if (offset == '630') {return 'GMT+10:30';} 
+else if (offset == '660') {return 'GMT+11';} 
+else if (offset == '720') {return 'GMT+12';} 
+else if (offset == '780') {return 'GMT+13';} 
+else if (offset == '825') {return 'GMT+13:45';} 
+else if (offset == '840') {return 'GMT+14';} 
+else {return 'Unknown';}
+
+Device Name
+return doc['DeviceName'].value;
+
+Access Mode
+return doc['AccessMode'].value;
+
+Antivirus Name
+return doc['AntivirusName'].value;
+
+Antivirus Status
+return doc['AntivirusStatus'].value;
+
+Antivirus Signature Status
+return doc['AntivirusSignatureStatus'].value;
+
+Country Provider
+return doc['CountryProvider'].value;
+
+Device Identifier
+return doc['DeviceIdentifier'].value;
+
+Device Type
+return doc['DeviceType'].value;
+
+deviceTRUST Client
+return doc['deviceTRUSTClient'].value;
+
+Economic Region
+return doc['EconomicRegion'].value;
+
+Firewall Name
+return doc['FirewallName'].value;
+
+Firewall Status
+return doc['FirewallStatus'].value;
+
+Hardware BIOS Release Date
+return doc['HardwareBIOSReleaseDate'].value;
+
+Hardware Model
+return doc['HardwareModel'].value;
+
+Hardware Role
+return doc['HardwareRole'].value;
+
+Hardware Secure Boot
+return doc['HardwareSecureBoot'].value;
+
+Hardware Vendor
+return doc['HardwareVendor'].value;
+
+Network Address Assignment
+return doc['NetworkAddressAssignment'].value;
+
+Network DHCP Server
+return doc['NetworkDHCPServer'].value;
+
+Network DNS Server
+return doc['NetworkDNSServer'].value;
+
+Network DNS Suffix
+return doc['NetworkDNSSuffix'].value;
+
+Network Gateway
+return doc['NetworkGateway'].value;
+
+Network Gateway Mac
+return doc['NetworkGatewayMac'].value;
+
+Network IP Address
+return doc['NetworkIPAddress'].value;
+
+Network Mac Address
+return doc['NetworkMacAddress'].value;
+
+Network Subnet
+return doc['NetworkSubnet'].value;
+
+OS Description
+return doc['OSDescription'].value;
+
+OS Disk Encryption
+return doc['OSDiskEncryption'].value;
+
+OS Name
+return doc['OSName'].value;
+
+OS Platform
+return doc['OSPlatform'].value;
+
+OS Release
+return doc['OSRelease'].value;
+
+OS Type
+return doc['OSType'].value;
+
+OS Updates
+return doc['OSUpdates'].value;
+
+OS Version
+return doc['OSVersion'].value;
+
+Region Keyboard Locale
+return doc['RegionKeyboardLocale'].value;
+
+Region Locale
+return doc['RegionLocale'].value;
+
+Remote Controlled
+return doc['RemoteControlled'].value;
+
+Remoting Client Protocol
+return doc['RemotingClientProtocol'].value;
+
+Remoting Client Version
+return doc['RemotingClientVersion'].value;
+
+Secure Screen Saver
+return doc['SecureScreenSaver'].value;
+
+Security State
+return doc['SecurityState'].value;
+
+Session User Domain
+return doc['SessionUserDomain'].value;
+
+Session User Name
+return doc['SessionUserName'].value;
+
+User Authentication
+return doc['UserAuthentication'].value;
+
+User Privileges
+return doc['UserPrivileges'].value;
+
+VPN Connected
+return doc['VPNConnected'].value;
+
+Wi-Fi Security Mode
+return doc['Wi-FiSecurityMode'].value;
+
+
+"index.max_script_fields": "100" !
