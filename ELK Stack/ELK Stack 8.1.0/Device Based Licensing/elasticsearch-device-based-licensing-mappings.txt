@@ -1,4 +1,5 @@
 {
+  "dynamic_templates": [],
   "properties": {
     "ApplicationUser": {
       "eager_global_ordinals": false,
