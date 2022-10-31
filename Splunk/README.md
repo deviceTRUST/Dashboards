@@ -8,6 +8,7 @@ All configurations have been created and tested with the following splunk versio
 - 8.1.0 (10.11.2021)
 - 8.2.3 (10.11.2021)
 - 8.2.5 (21.04.2022)
+- 9.0.1 (31.10.2022)
 
 # Scripts
 The content of the "_scripts" folder can be used to generate test data. Change the configuration according to your environemnt and run the scripts on any device.

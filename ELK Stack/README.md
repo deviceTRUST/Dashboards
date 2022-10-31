@@ -5,6 +5,10 @@ This section contains our pre-configured dashboards for ELK Stack.
 # Version Information
 ELK Stack saved objects are not downwards compatible. Please use at least the minimun version listed here for your ELK Stack server. Tested objects for other ELK Stack versions will be added.
 - 7.13.2 (18.10.2021)
+- 7.15.1
+- 7.16.3
+- 8.1.0
+- 8.3.3 (31.10.2022)
 
 # Documentation
 You can find a comprehensive documentation on our deviceTRUST docs website: ...

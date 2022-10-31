@@ -1,0 +1,40 @@
+Timezone Offset
+def offset = doc['Region Timezone Offset'].value; 
+if (offset == '-660') {return 'GMT-11';} 
+else if (offset == '-600') {return 'GMT-10';} 
+else if (offset == '-570') {return 'GMT-9:30';} 
+else if (offset == '-540') {return 'GMT-9';} 
+else if (offset == '-480') {return 'GMT-8';} 
+else if (offset == '-420') {return 'GMT-7';} 
+else if (offset == '-360') {return 'GMT-6';} 
+else if (offset == '-300') {return 'GMT-5';} 
+else if (offset == '-240') {return 'GMT-4';} 
+else if (offset == '-210') {return 'GMT-3:30';} 
+else if (offset == '-180') {return 'GMT-3';} 
+else if (offset == '-120') {return 'GMT-2';} 
+else if (offset == '-60') {return 'GMT-1';} 
+else if (offset == '0') {return 'GMT0';} 
+else if (offset == '60') {return 'GMT+1';} 
+else if (offset == '120') {return 'GMT+2';} 
+else if (offset == '180') {return 'GMT+3';} 
+else if (offset == '210') {return 'GMT+3:30';} 
+else if (offset == '240') {return 'GMT+4';} 
+else if (offset == '270') {return 'GMT+4:30';} 
+else if (offset == '300') {return 'GMT+5';} 
+else if (offset == '330') {return 'GMT+5:30';} 
+else if (offset == '345') {return 'GMT+5:45';} 
+else if (offset == '360') {return 'GMT+6';} 
+else if (offset == '390') {return 'GMT+6:30';} 
+else if (offset == '420') {return 'GMT+7';} 
+else if (offset == '480') {return 'GMT+8';} 
+else if (offset == '525') {return 'GMT+8:45';} 
+else if (offset == '540') {return 'GMT+9';} 
+else if (offset == '570') {return 'GMT+9:30';} 
+else if (offset == '600') {return 'GMT+10';} 
+else if (offset == '630') {return 'GMT+10:30';} 
+else if (offset == '660') {return 'GMT+11';} 
+else if (offset == '720') {return 'GMT+12';} 
+else if (offset == '780') {return 'GMT+13';} 
+else if (offset == '825') {return 'GMT+13:45';} 
+else if (offset == '840') {return 'GMT+14';} 
+else {return 'Unknown';}
