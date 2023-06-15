@@ -14,6 +14,7 @@ All configurations have been created and tested with the following splunk versio
 - 8.2.5 (21.04.2022)
 - 9.0.1 (31.10.2022)
 - 9.0.3 (11.01.2023)
+- 9.0.4 (01.06.2023)
 
 # Scripts
 
