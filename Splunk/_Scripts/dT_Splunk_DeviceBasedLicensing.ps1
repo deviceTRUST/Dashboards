@@ -90,6 +90,8 @@ $Applications | foreach-object{
 
         $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 60)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
     
+        formattedDate=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
+        echo $formattedDate
 
 $json = @"
 {
