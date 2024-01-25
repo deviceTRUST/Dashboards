@@ -88,12 +88,12 @@ $Applications | foreach-object{
         $ApplicationUserStateRandom = Get-Random –Minimum 0 –Maximum 100
         if ($ApplicationUserStateRandom -lt "25") {$ApplicationUserState = "True"}
 
-        $Years = "2019","2020","2021"
+        $Years = "2019","2020","2021","2022","2023","2024"
         $Year = Get-Random -InputObject $Years
-        if ($Year -ne "2021") {$Month = (Get-Random -Minimum 1 -Maximum 13).ToString("00")}
-        if ($Year -eq "2021") {$Month = (Get-Random -Minimum 1 -Maximum ((Get-Date).Month + 1)).ToString("00")}
-        if ($Year -ne "2021") {$Day = (Get-Random -Minimum 1 -Maximum 29).ToString("00")}
-        if ($Year -eq "2021") {
+        if ($Year -ne "2024") {$Month = (Get-Random -Minimum 1 -Maximum 13).ToString("00")}
+        if ($Year -eq "2024") {$Month = (Get-Random -Minimum 1 -Maximum ((Get-Date).Month + 1)).ToString("00")}
+        if ($Year -ne "2024") {$Day = (Get-Random -Minimum 1 -Maximum 29).ToString("00")}
+        if ($Year -eq "2024") {
             if(((Get-Date).Day).ToString("00") -ne "01"){
                 $Day = (Get-Random -Minimum 1 -Maximum (Get-Date).Day).ToString("00")
             } else {
