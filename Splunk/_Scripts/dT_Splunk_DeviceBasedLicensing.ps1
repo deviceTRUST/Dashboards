@@ -88,8 +88,25 @@ $Applications | foreach-object{
         $ApplicationUserStateRandom = Get-Random –Minimum 0 –Maximum 100
         if ($ApplicationUserStateRandom -lt "25") {$ApplicationUserState = "True"}
 
-        $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 60)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
-    
+        $Years = "2019","2020","2021"
+        $Year = Get-Random -InputObject $Years
+        if ($Year -ne "2021") {$Month = (Get-Random -Minimum 1 -Maximum 13).ToString("00")}
+        if ($Year -eq "2021") {$Month = (Get-Random -Minimum 1 -Maximum ((Get-Date).Month + 1)).ToString("00")}
+        if ($Year -ne "2021") {$Day = (Get-Random -Minimum 1 -Maximum 29).ToString("00")}
+        if ($Year -eq "2021") {
+            if(((Get-Date).Day).ToString("00") -ne "01"){
+                $Day = (Get-Random -Minimum 1 -Maximum (Get-Date).Day).ToString("00")
+            } else {
+                $Day = "01"
+            }
+                    
+        }
+        $Hour = (Get-Random -Minimum 1 -Maximum 24).ToString("00")
+        $Minute = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
+        $Seconds = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
+        $MilliSeconds = (Get-Random -Minimum 1 -Maximum 1000).ToString("000")
+        $Date = $Year + "-" + $Month + "-" + $Day + "T" + $Hour + ":" + $Minute + ":" + $Seconds + "." + $MilliSeconds + "Z"
+
 $json = @"
 {
 "host": "$DeviceName",
@@ -98,7 +115,7 @@ $json = @"
 "event": "Device based licensing Log Entry created for Application: $Application on Device: $DeviceName",
 "fields": {
     "Application": "$Application",
-    "SessionDate": "$SessionDate",
+    "SessionDate": "$Date",
     "LicensedStatus": "$LicensedStatus",
     "DeviceName": "$Device",
     "DeviceBIOSSerialNumber": "$DEVICE_HARDWARE_BIOS_SERIAL",
