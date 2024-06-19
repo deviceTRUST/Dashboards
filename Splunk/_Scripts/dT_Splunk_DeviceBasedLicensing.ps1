@@ -102,7 +102,7 @@ $Applications | foreach-object{
                     
         }
 
-        # Date
+        # Session Date
         # Define the start and end dates
         $endDate = Get-Date
         $startDate = $endDate.AddYears(-3)
@@ -117,7 +117,7 @@ $Applications | foreach-object{
         $randomDate = $startDate.AddSeconds($randomSeconds)
 
         # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
-        $Date  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+        $SessionDate  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 
 $json = @"
 {
@@ -127,7 +127,7 @@ $json = @"
 "event": "Device based licensing Log Entry created for Application: $Application on Device: $DeviceName",
 "fields": {
     "Application": "$Application",
-    "SessionDate": "$Date",
+    "SessionDate": "$SessionDate",
     "LicensedStatus": "$LicensedStatus",
     "DeviceName": "$Device",
     "DeviceBIOSSerialNumber": "$DEVICE_HARDWARE_BIOS_SERIAL",
