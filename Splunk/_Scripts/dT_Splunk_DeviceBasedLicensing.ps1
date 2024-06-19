@@ -101,11 +101,23 @@ $Applications | foreach-object{
             }
                     
         }
-        $Hour = (Get-Random -Minimum 1 -Maximum 24).ToString("00")
-        $Minute = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
-        $Seconds = (Get-Random -Minimum 1 -Maximum 60).ToString("00")
-        $MilliSeconds = (Get-Random -Minimum 1 -Maximum 1000).ToString("000")
-        $Date = $Year + "-" + $Month + "-" + $Day + "T" + $Hour + ":" + $Minute + ":" + $Seconds + "." + $MilliSeconds + "Z"
+
+        # Date
+        # Define the start and end dates
+        $endDate = Get-Date
+        $startDate = $endDate.AddYears(-3)
+
+        # Calculate the total number of seconds between the start and end dates
+        $totalSeconds = [math]::Round(($endDate - $startDate).TotalSeconds)
+
+        # Generate a random number of seconds to add to the start date
+        $randomSeconds = Get-Random -Minimum 0 -Maximum $totalSeconds
+
+        # Calculate the random date
+        $randomDate = $startDate.AddSeconds($randomSeconds)
+
+        # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
+        $Date  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 
 $json = @"
 {

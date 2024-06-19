@@ -3,7 +3,21 @@
 do {
 
     # Session Date
-    $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 19)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
+    # Define the start and end dates
+    $endDate = Get-Date
+    $startDate = $endDate.AddYears(-3)
+
+    # Calculate the total number of seconds between the start and end dates
+    $totalSeconds = [math]::Round(($endDate - $startDate).TotalSeconds)
+
+    # Generate a random number of seconds to add to the start date
+    $randomSeconds = Get-Random -Minimum 0 -Maximum $totalSeconds
+
+    # Calculate the random date
+    $randomDate = $startDate.AddSeconds($randomSeconds)
+
+    # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
+    $SessionDate  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 
     # Device Name
     $DeviceNameArray = @(
@@ -564,7 +578,21 @@ $Counter = 1
 do {
 
     # Session Date
-    $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 19)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
+    # Define the start and end dates
+    $endDate = Get-Date
+    $startDate = $endDate.AddYears(-3)
+
+    # Calculate the total number of seconds between the start and end dates
+    $totalSeconds = [math]::Round(($endDate - $startDate).TotalSeconds)
+
+    # Generate a random number of seconds to add to the start date
+    $randomSeconds = Get-Random -Minimum 0 -Maximum $totalSeconds
+
+    # Calculate the random date
+    $randomDate = $startDate.AddSeconds($randomSeconds)
+
+    # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
+    $SessionDate  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 
     # Device Name
     $DeviceNameArray = @(
@@ -1096,7 +1124,21 @@ $Counter = 1
 do {
 
     # Session Date
-    $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 19)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
+    # Define the start and end dates
+    $endDate = Get-Date
+    $startDate = $endDate.AddYears(-3)
+
+    # Calculate the total number of seconds between the start and end dates
+    $totalSeconds = [math]::Round(($endDate - $startDate).TotalSeconds)
+
+    # Generate a random number of seconds to add to the start date
+    $randomSeconds = Get-Random -Minimum 0 -Maximum $totalSeconds
+
+    # Calculate the random date
+    $randomDate = $startDate.AddSeconds($randomSeconds)
+
+    # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
+    $SessionDate  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 
     # Device Name
     $DeviceNameArray = @(
@@ -1413,8 +1455,22 @@ $Counter = 1
 do {
 
     # Session Date
-    $SessionDate = Get-Date -Format yyyy-MM-ddTHH:mm:ss.000Z ((((Get-Date).AddMonths(-(Get-Random -Minimum 0 -Maximum 13)).AddDays(-(Get-Random -Minimum 0 -Maximum 29)).AddHours(-(Get-Random -Minimum 0 -Maximum 25))).AddMinutes(-(Get-Random -Minimum 0 -Maximum 61))).AddSeconds(-(Get-Random -Minimum 0 -Maximum 61)))
+    # Define the start and end dates
+    $endDate = Get-Date
+    $startDate = $endDate.AddYears(-3)
 
+    # Calculate the total number of seconds between the start and end dates
+    $totalSeconds = [math]::Round(($endDate - $startDate).TotalSeconds)
+
+    # Generate a random number of seconds to add to the start date
+    $randomSeconds = Get-Random -Minimum 0 -Maximum $totalSeconds
+
+    # Calculate the random date
+    $randomDate = $startDate.AddSeconds($randomSeconds)
+
+    # Format the random date as yyyy-MM-ddTHH:mm:ss.000Z
+    $SessionDate  = $randomDate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    
     # Device Name
     $DeviceNameArray = @(
         "DTLDTW9",
